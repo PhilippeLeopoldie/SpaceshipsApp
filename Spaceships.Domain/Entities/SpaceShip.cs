@@ -1,4 +1,6 @@
-﻿namespace Spaceships.Domain.Entities;
+﻿using Spaceships.Domain.Entities.Enums;
+
+namespace Spaceships.Domain.Entities;
 public class SpaceShip
 {
     public int Id { get; set; }
@@ -6,4 +8,5 @@ public class SpaceShip
     public string Description { get; set; }
     public string CompanyName { get; set; }
     public TransportType TransportType { get; }
+    public string ImageUrl { get; set; }
 }
