@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spaceships.Infrastructure.Persistance.Users;
+namespace Spaceships.Infrastructure.Persistance;
 
 public class ApplicationUser : IdentityUser
 {
