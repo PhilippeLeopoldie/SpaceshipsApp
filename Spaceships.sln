@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36127.28 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceshipsApp", "SpaceshipsApp\SpaceshipsApp.csproj", "{BC5CEAF7-08B1-4FFA-B502-D09B3071066B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spaceships.Web", "SpaceshipsApp\Spaceships.Web.csproj", "{BC5CEAF7-08B1-4FFA-B502-D09B3071066B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spaceships.Infrastructure", "Spaceships.Infrastructure\Spaceships.Infrastructure.csproj", "{DDD519AC-1071-464D-8180-3CF82AA49022}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spaceships.Domain", "Spaceships.Domain\Spaceships.Domain.csproj", "{A9E5B58F-57BE-47ED-BA43-AEA90937343C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spaceships.Application", "Spaceships.Application\Spaceships.Application.csproj", "{71E4B2AF-91AF-4618-97CE-AD7794E5B142}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,18 @@ Global
 		{BC5CEAF7-08B1-4FFA-B502-D09B3071066B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC5CEAF7-08B1-4FFA-B502-D09B3071066B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC5CEAF7-08B1-4FFA-B502-D09B3071066B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDD519AC-1071-464D-8180-3CF82AA49022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDD519AC-1071-464D-8180-3CF82AA49022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDD519AC-1071-464D-8180-3CF82AA49022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDD519AC-1071-464D-8180-3CF82AA49022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9E5B58F-57BE-47ED-BA43-AEA90937343C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E5B58F-57BE-47ED-BA43-AEA90937343C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E5B58F-57BE-47ED-BA43-AEA90937343C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E5B58F-57BE-47ED-BA43-AEA90937343C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71E4B2AF-91AF-4618-97CE-AD7794E5B142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71E4B2AF-91AF-4618-97CE-AD7794E5B142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71E4B2AF-91AF-4618-97CE-AD7794E5B142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71E4B2AF-91AF-4618-97CE-AD7794E5B142}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
