@@ -10,9 +10,4 @@
     <ProjectReference Include="..\Spaceships.Domain\Spaceships.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Dtos\" />
-    <Folder Include="Users\" />
-  </ItemGroup>
-
 </Project>
