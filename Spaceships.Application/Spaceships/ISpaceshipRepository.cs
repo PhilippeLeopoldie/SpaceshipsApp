@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Spaceships.Domain.Entities;
+
+namespace Spaceships.Application.Spaceships;
+
+public interface ISpaceshipRepository
+{
+    Task<SpaceShip> GetAllAsync();
+    Task<SpaceShip> GetByIdAsync(int id);
+    void Create(SpaceShip spaceShip);
+}
