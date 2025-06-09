@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Identity;
+using Spaceships.Infrastructure.Persistance;
+
 namespace SpaceshipsApp
 {
     public class Program
@@ -5,9 +8,22 @@ namespace SpaceshipsApp
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = true;
+
+            })
+                .AddEntityFrameworkStores<ApplicationContext>()
+                .AddDefaultTokenProviders();
+
+            builder.Services.ConfigureApplicationCookie(configure => configure.LoginPath = "/login");
+
+
             var app = builder.Build();
 
-            app.MapGet("/", () => "Hello World!");
+            app.UseAuthorization();
 
             app.Run();
         }
