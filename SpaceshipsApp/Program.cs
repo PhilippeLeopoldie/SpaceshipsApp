@@ -10,7 +10,7 @@ namespace SpaceshipsApp
     {
         public static void Main(string[] args)
         {
-            
+
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddTransient<IIdentityUserService, IdentityUserService>();
             builder.Services.AddTransient<IUserService, UserService>();
@@ -37,10 +37,11 @@ namespace SpaceshipsApp
             var app = builder.Build();
 
             app.UseAuthorization();
-        app.MapGet("/", () => "WOOO SPACESHIPS!");
+            app.MapGet("/", () => "WOOO SPACESHIPS!");
 
-        app.UseStaticFiles();
+            app.UseStaticFiles();
 
-        app.Run();
+            app.Run();
+        }
     }
 }
