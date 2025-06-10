@@ -33,6 +33,23 @@ public class AccountController(IUserService userService) : Controller
             ModelState.AddModelError(string.Empty, result.ErrorMessage!);
             return View();
         }
-        return RedirectToAction();
+        return RedirectToAction(nameof(Login));
+    }
+
+    [HttpGet("Login")]
+    public IActionResult Login() => View();
+
+    [HttpPost("Login")]
+    public async Task<IActionResult> LoginAsync(LoginVM viewModel)
+    {
+        if (!ModelState.IsValid) return View();
+
+        var result = await userService.SignInAsync(viewModel.UserName, viewModel.Password);
+        if (!result.Succeded)
+        {
+            ModelState.AddModelError(string.Empty, result.ErrorMessage!);
+            return View();
+        }
+        return RedirectToAction(nameof(Members));
     }
 }
