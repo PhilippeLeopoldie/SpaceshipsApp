@@ -76,6 +76,21 @@ public class SpaceshipRepository : ISpaceshipRepository
         return spaceShips;
     }
 
+    void ISpaceshipRepository.Create(SpaceShip spaceShip)
+    {
+        throw new NotImplementedException();
+    }
+
+    Task<SpaceShip> ISpaceshipRepository.GetAllAsync()
+    {
+        throw new NotImplementedException();
+    }
+
+    Task<SpaceShip> ISpaceshipRepository.GetByIdAsync(int id)
+    {
+        throw new NotImplementedException();
+    }
+
     public class Context
     {
         public List<SpaceShip> spaceShips { get; set; } = new();
