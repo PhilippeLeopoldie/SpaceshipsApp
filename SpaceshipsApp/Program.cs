@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Spaceships.Application.Users;
 using Spaceships.Infrastructure.Persistance;
+using Spaceships.Infrastructure.Services;
 
 namespace SpaceshipsApp
 {
@@ -10,6 +12,8 @@ namespace SpaceshipsApp
         {
             
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddTransient<IIdentityUserService, IdentityUserService>();
+            builder.Services.AddTransient<IUserService, UserService>();
 
 
             // Database connection
