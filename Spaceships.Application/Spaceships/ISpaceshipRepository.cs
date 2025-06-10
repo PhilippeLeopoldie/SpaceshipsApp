@@ -10,6 +10,6 @@ namespace Spaceships.Application.Spaceships;
 public interface ISpaceshipRepository
 {
     Task<SpaceShip[]> GetAllAsync();
-    Task<SpaceShip> GetByIdAsync(int id);
+    Task<SpaceShip?> GetByIdAsync(int id);
     Task AddAsync(SpaceShip spaceShip);
 }
