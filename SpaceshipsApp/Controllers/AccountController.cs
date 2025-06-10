@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Spaceships.Application.Dtos;
 using Spaceships.Application.Users;
+using Spaceships.Web.Views.Account;
 
 namespace Spaceships.Web.Controllers;
 
-public class AccountController(IUserService user) : Controller
+public class AccountController(IUserService userService) : Controller
 {
     [Authorize]
     [HttpGet("")]
@@ -18,5 +20,19 @@ public class AccountController(IUserService user) : Controller
     public IActionResult Register()
     {
         return View();
+    }
+
+    [HttpPost("register")]
+    public async Task<IActionResult> RegisterAsync(RegisterVM viewModel)
+    {
+        if (!ModelState.IsValid) return View();
+        var userDto = new UserProfileDto(viewModel.Email, viewModel.FirstName, viewModel.LastName);
+        var result = await userService.CreateUserAsync(userDto, viewModel.Password);
+        if (!result.Succeded)
+        {
+            ModelState.AddModelError(string.Empty, result.ErrorMessage!);
+            return View();
+        }
+        return RedirectToAction();
     }
 }
