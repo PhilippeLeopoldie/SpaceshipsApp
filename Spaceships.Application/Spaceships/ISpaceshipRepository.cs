@@ -9,7 +9,7 @@ namespace Spaceships.Application.Spaceships;
 
 public interface ISpaceshipRepository
 {
-    Task<SpaceShip> GetAllAsync();
+    Task<SpaceShip[]> GetAllAsync();
     Task<SpaceShip> GetByIdAsync(int id);
-    void Create(SpaceShip spaceShip);
+    Task AddAsync(SpaceShip spaceShip);
 }
