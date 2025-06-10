@@ -4,8 +4,8 @@ using Spaceships.Infrastructure.Persistance;
 
 namespace Spaceships.Infrastructure;
 public class UnitOfWork(ApplicationContext context,
-    ISpaceshipRepository spaceshipRepository)
+    ISpaceshipRepository spaceshipRepository) : IUnitOfWork
 {
     public ISpaceshipRepository SpaceShips => spaceshipRepository;
-    public async Task SaveChangesAsync() => await context.SaveChangesAsync();
+    public async Task PersistAllAsync() => await context.SaveChangesAsync();
 }
