@@ -1,0 +1,19 @@
+﻿@model IndexVM
+
+@{
+    ViewBag.Title = "Spaceships";
+    ViewBag.ImageSrc = "/Images/index-header.jpg";
+    ViewBag.MainClass = "main-index";
+}
+
+<div class="index-cards-container">
+    @foreach (var spaceship in Model.SpaceshipVMs)
+    {
+        <a asp-controller="Spaceships" asp-action="Details" asp-route-id="@spaceship.Id" class="index-card">
+            <img src="@spaceship.ImageUrl" alt="@spaceship.SpaceshipName" />
+            <h2>@spaceship.SpaceshipName</h2>
+        </a>
+    }
+</div>
+
+<a asp-controller="Spaceships" asp-action="AddSpaceship" class="btn">Add a New Spaceship</a>

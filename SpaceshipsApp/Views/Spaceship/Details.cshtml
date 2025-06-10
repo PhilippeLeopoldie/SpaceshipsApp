@@ -1,0 +1,31 @@
+﻿@model DetailsVM
+
+@{
+    ViewBag.Title = Model.SpaceshipName;
+    ViewBag.ImageSrc = Model.ImageUrl;
+    ViewBag.MainClass = "main-details";
+}
+
+<div class="spaceship-details-container">
+
+    <div>
+        <h3>Name</h3>
+        <p>@Model.SpaceshipName</p>
+    </div>
+    
+    <div>
+        <h3>Manufacturer</h3>
+        <p>@Model.CompanyName</p>
+    </div>
+
+    <div>
+        <h3>Manufacturer</h3>
+        <p>@Model.Description</p>
+    </div>
+
+    <div>
+        <h3>Transport Type</h3>
+        <p>@Model.TransportType</p>
+    </div>
+
+</div>
