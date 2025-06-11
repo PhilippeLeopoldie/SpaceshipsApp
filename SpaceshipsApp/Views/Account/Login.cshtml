@@ -1,6 +1,8 @@
 ﻿@model LoginVM
+@{
+    ViewData["Title"] = "Login";
+}
 
-<h3>Log In</h3>
 <form asp-controller="Account" asp-action="Login">
     <label asp-for="UserName"></label>
     <input asp-for="UserName" />

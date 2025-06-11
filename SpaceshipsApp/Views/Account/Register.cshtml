@@ -1,6 +1,8 @@
 ﻿@model RegisterVM
+@{
+    ViewData["Title"] = "Registration";
+}
 
-<h3>Register</h3>
 <form asp-controller="Account" asp-action="Register">
     <label asp-for = "FirstName"></label>
     <input asp-for="FirstName"/>
