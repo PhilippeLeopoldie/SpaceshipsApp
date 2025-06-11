@@ -14,6 +14,8 @@ namespace SpaceshipsApp
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddTransient<IIdentityUserService, IdentityUserService>();
             builder.Services.AddTransient<IUserService, UserService>();
+            builder.Services.AddControllersWithViews();
+            builder.Services.AddAuthorization();
 
 
             // Database connection
@@ -37,8 +39,9 @@ namespace SpaceshipsApp
             var app = builder.Build();
 
             app.UseAuthorization();
-            app.MapGet("/", () => "WOOO SPACESHIPS!");
-
+            app.UseHttpsRedirection();
+            //app.MapGet("/", () => "WOOO SPACESHIPS!");
+            app.MapControllers();
             app.UseStaticFiles();
 
             app.Run();
