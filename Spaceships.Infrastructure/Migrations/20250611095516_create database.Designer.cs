@@ -12,8 +12,8 @@ using Spaceships.Infrastructure.Persistance;
 namespace Spaceships.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20250610095607_Add spaceShip entity")]
-    partial class AddspaceShipentity
+    [Migration("20250611095516_create database")]
+    partial class createdatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -187,7 +187,7 @@ namespace Spaceships.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("spaceShip");
+                    b.ToTable("Spaceships");
 
                     b.HasData(
                         new
@@ -195,7 +195,7 @@ namespace Spaceships.Infrastructure.Migrations
                             Id = 1,
                             CompanyName = "SpaceX",
                             Description = "SpaceX's uncrewed spacecraft used to deliver supplies to the ISS.",
-                            ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/SpaceX_CRS-20_Dragon.jpg/640px-SpaceX_CRS-20_Dragon.jpg",
+                            ImageUrl = "/Images/dragon-cargo.jpg",
                             SpaceshipName = "Dragon Cargo",
                             TransportType = 1
                         },
@@ -204,7 +204,7 @@ namespace Spaceships.Infrastructure.Migrations
                             Id = 2,
                             CompanyName = "SpaceX",
                             Description = "SpaceX's reusable capsule for transporting astronauts to the ISS.",
-                            ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Crew_Dragon_Demo-2_%28NHQ202005300036%29.jpg/640px-Crew_Dragon_Demo-2_%28NHQ202005300036%29.jpg",
+                            ImageUrl = "/Images/dragon-crew.jpg",
                             SpaceshipName = "Dragon Crew",
                             TransportType = 0
                         },
@@ -213,7 +213,7 @@ namespace Spaceships.Infrastructure.Migrations
                             Id = 3,
                             CompanyName = "SpaceX",
                             Description = "Next-gen fully reusable spacecraft for Mars missions, currently under development.",
-                            ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Starship_SN9_launch.jpg/640px-Starship_SN9_launch.jpg",
+                            ImageUrl = "/Images/starship.jpg",
                             SpaceshipName = "Starship",
                             TransportType = 1
                         },
@@ -222,7 +222,7 @@ namespace Spaceships.Infrastructure.Migrations
                             Id = 4,
                             CompanyName = "NASA / ESA",
                             Description = "NASA’s spacecraft for deep-space crewed missions beyond the Moon.",
-                            ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Orion_Capsule_%28Space_Expo%29.jpg/640px-Orion_Capsule_%28Space_Expo%29.jpg",
+                            ImageUrl = "/Images/orion.jpg",
                             SpaceshipName = "Orion",
                             TransportType = 0
                         },
@@ -231,7 +231,7 @@ namespace Spaceships.Infrastructure.Migrations
                             Id = 5,
                             CompanyName = "Roscosmos",
                             Description = "Russian spacecraft used for crew transport since the 1960s.",
-                            ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Soyuz_TMA-16_spacecraft.jpg/640px-Soyuz_TMA-16_spacecraft.jpg",
+                            ImageUrl = "/Images/soyuz.jpg",
                             SpaceshipName = "Soyuz",
                             TransportType = 0
                         },
@@ -240,7 +240,7 @@ namespace Spaceships.Infrastructure.Migrations
                             Id = 6,
                             CompanyName = "Roscosmos",
                             Description = "Uncrewed cargo spacecraft used to resupply the ISS.",
-                            ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Progress_M1-10.jpg/640px-Progress_M1-10.jpg",
+                            ImageUrl = "/Images/progress.jpg",
                             SpaceshipName = "Progress",
                             TransportType = 1
                         },
@@ -249,7 +249,7 @@ namespace Spaceships.Infrastructure.Migrations
                             Id = 7,
                             CompanyName = "Sierra Space",
                             Description = "Spaceplane being developed for cargo delivery to the ISS.",
-                            ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Dream_Chaser_mission_illustration.jpg/640px-Dream_Chaser_mission_illustration.jpg",
+                            ImageUrl = "/Images/dream-chaser.jpg",
                             SpaceshipName = "Dream Chaser",
                             TransportType = 1
                         });
