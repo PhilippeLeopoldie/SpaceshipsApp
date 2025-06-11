@@ -24,10 +24,10 @@
             <div class="nav-links">
                 <a asp-controller="Spaceships" asp-action="Index" class="nav-item"><img src="/Images/Icons/home-icon.png" alt="Home Icon"/> Home</a>
                 <a asp-controller="Spaceships" asp-action="Create" class="nav-item"><img src="/Images/Icons/add-icon.png" alt="Add Icon"/> Add Spaceship</a>
-                <a asp-controller="Account" asp-action="Members">Members</a>
 
                 @if(User.Identity!.IsAuthenticated)
                 {
+                    <a asp-controller="Account" asp-action="Members">Members</a>
                     <a asp-controller="Account" asp-action="LogOut">Logout</a>
                     <p>Logged in User: @User.Identity.Name</p>
 
