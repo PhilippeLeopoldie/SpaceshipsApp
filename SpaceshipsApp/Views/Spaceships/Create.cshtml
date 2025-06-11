@@ -1,0 +1,69 @@
+﻿@model CreateVM
+
+@{
+    ViewBag.Title = "Add Spaceship";
+    // ViewBag.ImageSrc = "/Images/index-header.jpg";
+    ViewBag.MainClass = "main-create";
+}
+
+<form asp-controller="Spaceships" asp-action="Create" class="create-form">
+    <div class="input-group">
+        <label asp-for="SpaceshipName"></label>
+        <input asp-for="SpaceshipName"/>
+        <span asp-validation-for="SpaceshipName" class="text-danger"></span>
+    </div>
+
+    <div class="input-group">
+        <label asp-for="CompanyName"></label>
+        <input asp-for="CompanyName" class="form-field" />
+        <span asp-validation-for="CompanyName" class="text-danger"></span>
+    </div>
+
+    <div class="input-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-field" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="input-group">
+        <label asp-for="ImageUrl"></label>
+        <input asp-for="ImageUrl" class="form-field" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+
+    <div class="input-group">
+        <label asp-for="TransportType"></label>
+        <div>
+            @foreach (var type in Enum.GetValues(typeof(TransportType)))
+            {
+                <label>
+                    <input type="radio" asp-for="TransportType" value="@type" />
+                    @type
+                </label>
+            }
+        </div>
+        <span asp-validation-for="TransportType" class="text-danger"></span>
+    </div>
+
+
+    <button type="submit" class="button">Create</button>
+</form>
+
+
+@section scripts
+{
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"
+            asp-fallback-src="~/scripts/jquery/jquery.min.js"
+            asp-fallback-test="window.jQuery">
+    </script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.js"
+            asp-fallback-src="~/scripts/jquery-validate/jquery.validate.min.js"
+            asp-fallback-test="$.validator">
+    </script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"
+            asp-fallback-src="~/scripts/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+            asp-fallback-test="$.validator.unobtrusive">
+    </script>
+}

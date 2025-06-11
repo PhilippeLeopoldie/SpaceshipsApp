@@ -1,2 +1,214 @@
-﻿body {
+﻿/****** BASE ******/
+body {
+    background-color: #080a12;
+    background-image: linear-gradient(to bottom, #010102, #0f131e);
+    font-family: "Rajdhani", sans-serif;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-family: "Pathway Extreme", sans-serif;
+    font-size: 1.1rem;
+}
+
+
+
+/****** HEADER ******/
+header {
+    height: 50vh;
+    background-image: linear-gradient(to bottom, rgba(4, 5, 12, 0.7), transparent), url('/Images/index-header.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12vh;
+}
+
+header > img {
+    width: 100px;
+}
+
+.page-heading {
+    font-size: 6rem;
+}
+
+
+
+/****** NAVBAR ******/
+nav.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 0.5% 4%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+nav .nav-links {
+    display: flex;
+}
+
+nav .nav-links a {
+    color: #5CE4FF;
+    text-shadow: 0 0 10px black;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 2rem;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+nav .nav-links a:hover {
+    color: white;
+}
+
+nav .navbar-brand img {
+    width: 32px;
+}
+
+nav .nav-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+nav .nav-item img {
+    width: 24px;
+    padding-bottom: 4px;
+    margin-right: 0.5rem;
+}
+
+
+
+/****** LANDING PAGE ******/
+.index-cards-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2%;
+}
+
+.index-card {
+    width: 23%;
+    background-color: #151a2f;
+    border-radius: 8px;
+    box-shadow: 0px 0px 27px 0px rgb(0 0 0 / 70%);
+    transition: box-shadow 0.2s, background-color 0.2s;
+    margin-bottom: 4%;
+}
+
+.index-card:hover {
+    background-color: #1c223d;
+}
+
+.index-card h2 {
+    font-family: "Pathway Extreme", sans-serif;
+    font-size: 1.4rem;
+    padding: 0.8rem;
+    text-align: center;
+    color: #5CE4FF;
+}
+
+.index-card img {
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px 8px 0 0;
+}
+
+
+
+/****** DETAILS PAGE ******/
+.spaceship-details-container {
+    display: flex;
+    gap: 2%;
+    background-color: #090b16;
+    border-radius: 8px;
+}
+
+.spaceship-details-container img {
+    border-radius: 8px 0 0 8px;
+}
+
+.text-container {
+    padding: 2%;
+}
+
+.text-container p {
+    font-family: "Pathway Extreme", sans-serif;
+    font-size: 1.2rem;
+    color: #8b8bab;
+}
+
+.text-container .spaceship-details-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 4px solid #06070c;
+    display: flex;
+    align-items: center;
+}
+
+.back-link {
+    font-family: "Pathway Extreme", sans-serif;
+    color: #5CE4FF;
+    font-size: 2rem;
+    padding-bottom: 6px;
+    margin-right: 1rem;
+}
+
+.text-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+
+.text-container div {
+    margin-bottom: 2rem;
+}
+
+
+
+/****** CREATE PAGE ******/
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 1.5rem;
+}
+
+.create-form input {
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 0.5rem;
+
+    color: white;
+    font-size: 1.1rem;
+    font-family: "Pathway Extreme", sans-serif;
+}
+
+
+
+/****** FOOTER ******/
+footer {
+    background-color: #07080e;
+    padding: 2% 0;
+    margin-top: 8%;
+}
+
+footer p {
+    color: #8b8bab;
+    font-size: 1.1rem;
 }

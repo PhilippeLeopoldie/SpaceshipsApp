@@ -7,7 +7,7 @@ namespace Spaceships.Web.Controllers;
 public class AccountController(IUserService user) : Controller
 {
     [Authorize]
-    [HttpGet("")]
+    //[HttpGet("")]
     [HttpGet("members")]
     public IActionResult Members()
     {

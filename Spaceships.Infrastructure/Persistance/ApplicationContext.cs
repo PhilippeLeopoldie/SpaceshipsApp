@@ -28,7 +28,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options)
                 Description = "SpaceX's uncrewed spacecraft used to deliver supplies to the ISS.",
                 CompanyName = "SpaceX",
                 TransportType = TransportType.Cargo,
-                ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/SpaceX_CRS-20_Dragon.jpg/640px-SpaceX_CRS-20_Dragon.jpg"
+                ImageUrl = "/Images/dragon-cargo.jpg"
             },
         new SpaceShip
         {
@@ -37,7 +37,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options)
             Description = "SpaceX's reusable capsule for transporting astronauts to the ISS.",
             CompanyName = "SpaceX",
             TransportType = TransportType.Passenger,
-            ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Crew_Dragon_Demo-2_%28NHQ202005300036%29.jpg/640px-Crew_Dragon_Demo-2_%28NHQ202005300036%29.jpg"
+            ImageUrl = "/Images/dragon-crew.jpg"
         },
         new SpaceShip
         {
@@ -46,7 +46,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options)
             Description = "Next-gen fully reusable spacecraft for Mars missions, currently under development.",
             CompanyName = "SpaceX",
             TransportType = TransportType.Cargo,
-            ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Starship_SN9_launch.jpg/640px-Starship_SN9_launch.jpg"
+            ImageUrl = "/Images/starship.jpg"
         },
         new SpaceShip
         {
@@ -55,7 +55,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options)
             Description = "NASA’s spacecraft for deep-space crewed missions beyond the Moon.",
             CompanyName = "NASA / ESA",
             TransportType = TransportType.Passenger,
-            ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Orion_Capsule_%28Space_Expo%29.jpg/640px-Orion_Capsule_%28Space_Expo%29.jpg"
+            ImageUrl = "/Images/orion.jpg"
         },
         new SpaceShip
         {
@@ -64,7 +64,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options)
             Description = "Russian spacecraft used for crew transport since the 1960s.",
             CompanyName = "Roscosmos",
             TransportType = TransportType.Passenger,
-            ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Soyuz_TMA-16_spacecraft.jpg/640px-Soyuz_TMA-16_spacecraft.jpg"
+            ImageUrl = "/Images/soyuz.jpg"
         },
         new SpaceShip
         {
@@ -73,7 +73,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options)
             Description = "Uncrewed cargo spacecraft used to resupply the ISS.",
             CompanyName = "Roscosmos",
             TransportType = TransportType.Cargo,
-            ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Progress_M1-10.jpg/640px-Progress_M1-10.jpg"
+            ImageUrl = "/Images/progress.jpg"
         },
         new SpaceShip
         {
@@ -82,7 +82,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options)
             Description = "Spaceplane being developed for cargo delivery to the ISS.",
             CompanyName = "Sierra Space",
             TransportType = TransportType.Cargo,
-            ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Dream_Chaser_mission_illustration.jpg/640px-Dream_Chaser_mission_illustration.jpg"
+            ImageUrl = "/Images/dream-chaser.jpg"
         });
     }
 
