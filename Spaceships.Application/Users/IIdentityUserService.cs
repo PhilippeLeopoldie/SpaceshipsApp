@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,4 +12,5 @@ public interface IIdentityUserService
 {
     Task<UserResultDto> CreateUserAsync(UserProfileDto user, string password);
     Task<UserResultDto> SignInAsync(string email, string password);
+    Task SignOutAsync();
 }

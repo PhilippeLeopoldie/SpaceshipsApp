@@ -9,7 +9,6 @@ namespace Spaceships.Web.Controllers;
 public class AccountController(IUserService userService) : Controller
 {
     [Authorize]
-    [HttpGet("")]
     [HttpGet("members")]
     public IActionResult Members()
     {
@@ -33,13 +32,14 @@ public class AccountController(IUserService userService) : Controller
             ModelState.AddModelError(string.Empty, result.ErrorMessage!);
             return View();
         }
-        return RedirectToAction(nameof(Login));
+        await userService.SignInAsync(viewModel.Email, viewModel.Password);
+        return RedirectToAction(nameof(Members));
     }
 
-    [HttpGet("Login")]
+    [HttpGet("login")]
     public IActionResult Login() => View();
 
-    [HttpPost("Login")]
+    [HttpPost("login")]
     public async Task<IActionResult> LoginAsync(LoginVM viewModel)
     {
         if (!ModelState.IsValid) return View();
@@ -51,5 +51,12 @@ public class AccountController(IUserService userService) : Controller
             return View();
         }
         return RedirectToAction(nameof(Members));
+    }
+
+    [HttpGet("logOut")]
+    public async Task<IActionResult> LogOut()
+    {
+        await userService.SignOutAsync();
+        return RedirectToAction(nameof(LoginAsync).Replace("Async", ""));
     }
 }
