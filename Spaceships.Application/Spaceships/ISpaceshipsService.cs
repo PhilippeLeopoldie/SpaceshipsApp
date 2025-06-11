@@ -12,5 +12,4 @@ public interface ISpaceshipsService
     Task AddAsync(SpaceShip spaceship);
     Task<SpaceShip[]> GetAllAsync();
     Task<SpaceShip?> GetByIdAsync(int id);
-
 }

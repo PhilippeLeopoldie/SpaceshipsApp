@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 namespace Spaceships.Infrastructure.Persistance.Repositories;
 public class SpaceshipRepository(ApplicationContext context) : ISpaceshipRepository
 {
-    public async Task AddAsync(SpaceShip spaceShip)
-    {
+    public async Task AddAsync(SpaceShip spaceShip) => 
         await context.Spaceships.AddAsync(spaceShip);
-        await context.SaveChangesAsync();
-    }
 
     public async Task<SpaceShip[]> GetAllAsync() => 
         await context.Spaceships.ToArrayAsync();

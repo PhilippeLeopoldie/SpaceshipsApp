@@ -5,6 +5,6 @@ namespace Spaceships.Infrastructure;
 public class UnitOfWork(ApplicationContext context,
     ISpaceshipRepository spaceshipRepository) : IUnitOfWork
 {
-    public ISpaceshipRepository SpaceShips => spaceshipRepository;
+    public ISpaceshipRepository Spaceships => spaceshipRepository;
     public async Task PersistAllAsync() => await context.SaveChangesAsync();
 }
