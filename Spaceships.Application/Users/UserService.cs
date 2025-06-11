@@ -16,4 +16,7 @@ public class UserService(IIdentityUserService identityUserService) : IUserServic
     await identityUserService.SignInAsync(email, password);
 
     public async Task SignOutAsync() => await identityUserService.SignOutAsync();
+
+    public async Task<UserProfileDto> GetUserByEmailAsync(string email) 
+        => await identityUserService.GetUserByEmailAsync(email);
 }

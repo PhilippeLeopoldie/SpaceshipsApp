@@ -10,6 +10,7 @@ namespace Spaceships.Application.Users;
 public interface IUserService
 {
     Task<UserResultDto> CreateUserAsync(UserProfileDto user, string password);
+    Task<UserProfileDto> GetUserByEmailAsync(string email);
     Task<UserResultDto> SignInAsync(string email, string password);
     Task SignOutAsync();
 }

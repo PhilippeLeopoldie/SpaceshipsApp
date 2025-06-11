@@ -56,13 +56,19 @@ public class AccountController(IUserService userService) : Controller
     {
         if (!ModelState.IsValid) return View();
 
-        var result = await userService.SignInAsync(viewModel.UserName, viewModel.Password);
+        var result = await userService.SignInAsync(viewModel.UserEmail, viewModel.Password);
         if (!result.Succeded)
         {
             ModelState.AddModelError(string.Empty, result.ErrorMessage!);
             return View();
         }
-        
+        var user = await userService.GetUserByEmailAsync(viewModel.UserEmail);
+        if (user == null) 
+        {
+            ModelState.AddModelError(string.Empty, "Unexpected error: User data could not be loaded.");
+            return View();
+        }
+        if(user.IsAdmin) return RedirectToAction(nameof(Admins));
         return RedirectToAction(nameof(Members));
     }
 

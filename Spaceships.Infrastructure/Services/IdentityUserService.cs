@@ -55,6 +55,14 @@ public class IdentityUserService(
         return new UserResultDto(null);
     }
 
+    public async Task<UserProfileDto> GetUserByEmailAsync(string email)
+    {
+        var user = await userManager.FindByEmailAsync(email);
+        if (user == null) return null!;
+        
+        return new UserProfileDto(user.Email!, user.FirstName!, user.LastName!, user.IsAdmin);
+    }
+
     
 
     public async Task<UserResultDto> SignInAsync(string email, string password)
