@@ -23,7 +23,9 @@ public class SpaceshipServiceTests()
     [Fact]
     public async Task AddSpaceshipAsync()
     {
+        var mockRepo = new Mock<ISpaceshipRepository>();
         var mockUoW = new Mock<IUnitOfWork>();
+        mockUoW.Setup(x => x.Spaceships).Returns(mockRepo.Object);
         var service = new SpaceshipsService(mockUoW.Object);
 
         await service.AddAsync(GetMockSpaceship());

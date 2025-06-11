@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36127.28 d17.14
+VisualStudioVersion = 17.14.36127.28
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spaceships.Web", "SpaceshipsApp\Spaceships.Web.csproj", "{BC5CEAF7-08B1-4FFA-B502-D09B3071066B}"
 EndProject
@@ -12,6 +12,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spaceships.Domain", "Spaceships.Domain\Spaceships.Domain.csproj", "{A9E5B58F-57BE-47ED-BA43-AEA90937343C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spaceships.Application", "Spaceships.Application\Spaceships.Application.csproj", "{71E4B2AF-91AF-4618-97CE-AD7794E5B142}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spaceships.Application.Tests", "Spaceships.Application.Tests\Spaceships.Application.Tests.csproj", "{E1EAEC35-A1F1-D255-1244-891E38AB70B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spaceships.Web.Tests", "Spaceships.Web.Tests\Spaceships.Web.Tests.csproj", "{0AB737D5-E249-4178-BB83-10DA0D4B7249}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +39,14 @@ Global
 		{71E4B2AF-91AF-4618-97CE-AD7794E5B142}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71E4B2AF-91AF-4618-97CE-AD7794E5B142}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71E4B2AF-91AF-4618-97CE-AD7794E5B142}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1EAEC35-A1F1-D255-1244-891E38AB70B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1EAEC35-A1F1-D255-1244-891E38AB70B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1EAEC35-A1F1-D255-1244-891E38AB70B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1EAEC35-A1F1-D255-1244-891E38AB70B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AB737D5-E249-4178-BB83-10DA0D4B7249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AB737D5-E249-4178-BB83-10DA0D4B7249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AB737D5-E249-4178-BB83-10DA0D4B7249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AB737D5-E249-4178-BB83-10DA0D4B7249}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

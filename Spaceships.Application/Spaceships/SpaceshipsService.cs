@@ -9,6 +9,8 @@ public class SpaceshipsService(IUnitOfWork unitOfWork) : ISpaceshipsService
 
     public async Task AddAsync(SpaceShip spaceship)
     {
+        if (unitOfWork.Spaceships is null)
+            throw new InvalidOperationException("spaceship repo not initialized");
         await unitOfWork.Spaceships.AddAsync(spaceship);
         await unitOfWork.PersistAllAsync();
     }
