@@ -4,14 +4,12 @@
 }
 @if(User.Identity!.IsAuthenticated)
 {
-    <p>
-        Welcome <strong>@User.Identity!.Name</strong>!
-    </p>
+        <h2>Welcome, <strong>@User.FindFirst("FirstName")?.Value!</strong></h2>
 }
-@* else
+else
 {
     <p>Your are not logged....</p>
-} *@
+}
 
 
 

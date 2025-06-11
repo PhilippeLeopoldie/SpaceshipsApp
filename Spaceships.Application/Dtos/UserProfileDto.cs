@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Spaceships.Application.Dtos;
 
-public record UserProfileDto(string Email, string FirstName, string LastName);
+public record UserProfileDto(string Email, string FirstName, string LastName, bool IsAdmin);
 

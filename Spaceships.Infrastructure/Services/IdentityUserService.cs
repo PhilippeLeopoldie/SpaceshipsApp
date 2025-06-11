@@ -18,7 +18,7 @@ public class IdentityUserService(
     RoleManager<IdentityRole> roleManager) 
     : IIdentityUserService
 {
-    public async Task<UserResultDto> CreateUserAsync(UserProfileDto user, string password, bool isAdmin)
+    public async Task<UserResultDto> CreateUserAsync(UserProfileDto user, string password)
     {
         var applicationUser = new ApplicationUser
         {
@@ -26,11 +26,17 @@ public class IdentityUserService(
             Email = user.Email,
             FirstName = user.FirstName,
             LastName = user.LastName,
+            IsAdmin = user.IsAdmin
         };
         var result = await userManager.CreateAsync(applicationUser, password);
         if(!result.Succeeded) 
         return new UserResultDto(result.Errors.FirstOrDefault()?.Description);
-        if(isAdmin)
+
+        // Add FirstName claim to database 
+        await userManager.AddClaimAsync(applicationUser, new Claim("FirstName", applicationUser.FirstName));
+        await userManager.AddClaimAsync(applicationUser, new Claim("IsAdmin", applicationUser.IsAdmin.ToString()));
+
+        if (applicationUser.IsAdmin)
         {
             const string adminRoleName = "Administrator";
             // Skapa en ny roll

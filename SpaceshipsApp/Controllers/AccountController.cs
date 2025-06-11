@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Spaceships.Application.Dtos;
 using Spaceships.Application.Users;
@@ -9,9 +10,16 @@ namespace Spaceships.Web.Controllers;
 public class AccountController(IUserService userService) : Controller
 {
     
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     [HttpGet("members")]
     public IActionResult Members()
+    {
+        return View();
+    }
+
+    [Authorize(Roles = "Administrator")]
+    [HttpGet("admin")]
+    public IActionResult Admins()
     {
         return View();
     }
@@ -26,14 +34,15 @@ public class AccountController(IUserService userService) : Controller
     public async Task<IActionResult> RegisterAsync(RegisterVM viewModel)
     {
         if (!ModelState.IsValid) return View();
-        var userDto = new UserProfileDto(viewModel.Email, viewModel.FirstName, viewModel.LastName);
-        var result = await userService.CreateUserAsync(userDto, viewModel.Password, viewModel.IsAdmin);
+        var userDto = new UserProfileDto(viewModel.Email, viewModel.FirstName, viewModel.LastName, viewModel.IsAdmin);
+        var result = await userService.CreateUserAsync(userDto, viewModel.Password);
         if (!result.Succeded)
         {
             ModelState.AddModelError(string.Empty, result.ErrorMessage!);
             return View();
         }
         await userService.SignInAsync(viewModel.Email, viewModel.Password);
+        if (userDto.IsAdmin) return RedirectToAction(nameof(Admins));
         return RedirectToAction(nameof(Members));
     }
 
@@ -53,6 +62,7 @@ public class AccountController(IUserService userService) : Controller
             ModelState.AddModelError(string.Empty, result.ErrorMessage!);
             return View();
         }
+        
         return RedirectToAction(nameof(Members));
     }
 

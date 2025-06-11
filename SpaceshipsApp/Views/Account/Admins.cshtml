@@ -1,0 +1,7 @@
+﻿@{
+    ViewData["Title"] = "Administrator";
+}
+@if (User.Identity!.IsAuthenticated)
+{
+    <h2>Welcome, <strong>@User.FindFirst("FirstName")?.Value!</strong></h2>
+}
