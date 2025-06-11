@@ -24,5 +24,8 @@ public class RegisterVM
     [DataType(DataType.Password)]
     [Display(Name = "Repeat password")]
     [Compare(nameof(Password))]
-    public required string PasswordRepeat { get; set; } 
+    public required string PasswordRepeat { get; set; }
+    [Required]
+    [Display(Name = "Administrator")]
+    public bool IsAdmin { get; set; } = false;
 }

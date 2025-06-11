@@ -8,7 +8,8 @@ namespace Spaceships.Web.Controllers;
 
 public class AccountController(IUserService userService) : Controller
 {
-    [Authorize]
+    
+    [Authorize(Roles = "Administrator")]
     [HttpGet("members")]
     public IActionResult Members()
     {
@@ -26,7 +27,7 @@ public class AccountController(IUserService userService) : Controller
     {
         if (!ModelState.IsValid) return View();
         var userDto = new UserProfileDto(viewModel.Email, viewModel.FirstName, viewModel.LastName);
-        var result = await userService.CreateUserAsync(userDto, viewModel.Password);
+        var result = await userService.CreateUserAsync(userDto, viewModel.Password, viewModel.IsAdmin);
         if (!result.Succeded)
         {
             ModelState.AddModelError(string.Empty, result.ErrorMessage!);
@@ -35,6 +36,8 @@ public class AccountController(IUserService userService) : Controller
         await userService.SignInAsync(viewModel.Email, viewModel.Password);
         return RedirectToAction(nameof(Members));
     }
+
+ 
 
     [HttpGet("login")]
     public IActionResult Login() => View();

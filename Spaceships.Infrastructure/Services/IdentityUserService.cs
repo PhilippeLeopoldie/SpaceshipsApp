@@ -14,23 +14,42 @@ namespace Spaceships.Infrastructure.Services;
 
 public class IdentityUserService(
     UserManager<ApplicationUser> userManager,
-    SignInManager<ApplicationUser> signInManager) 
+    SignInManager<ApplicationUser> signInManager,
+    RoleManager<IdentityRole> roleManager) 
     : IIdentityUserService
 {
-    public async Task<UserResultDto> CreateUserAsync(UserProfileDto user, string password)
+    public async Task<UserResultDto> CreateUserAsync(UserProfileDto user, string password, bool isAdmin)
     {
-        var result = await userManager.CreateAsync(new ApplicationUser
+        var applicationUser = new ApplicationUser
         {
             UserName = user.Email,
-            Email = user.Email, 
+            Email = user.Email,
             FirstName = user.FirstName,
             LastName = user.LastName,
-        }, password);
+        };
+        var result = await userManager.CreateAsync(applicationUser, password);
         if(!result.Succeeded) 
         return new UserResultDto(result.Errors.FirstOrDefault()?.Description);
+        if(isAdmin)
+        {
+            const string adminRoleName = "Administrator";
+            // Skapa en ny roll
+            if (!await roleManager.RoleExistsAsync(adminRoleName))
+                await roleManager.CreateAsync(new IdentityRole(adminRoleName));
+
+            // Lägg till en användare till en roll
+            
+                await userManager.AddToRoleAsync(applicationUser, adminRoleName);
+
+            // Kontrollera huruvida en användare ingår i en roll
+            bool isUserInRole = await userManager.IsInRoleAsync(applicationUser, adminRoleName);
+
+        }
 
         return new UserResultDto(null);
     }
+
+    
 
     public async Task<UserResultDto> SignInAsync(string email, string password)
     {
