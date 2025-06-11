@@ -5,6 +5,7 @@ using Spaceships.Infrastructure.Persistance;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,24 +13,33 @@ using System.Threading.Tasks;
 namespace Spaceships.Infrastructure.Services;
 
 public class IdentityUserService(
-    UserManager<ApplicationUser> useManager,
-    SignInManager<ApplicationUser> signInManager) : IIdentityUserService
+    UserManager<ApplicationUser> userManager,
+    SignInManager<ApplicationUser> signInManager) 
+    : IIdentityUserService
 {
     public async Task<UserResultDto> CreateUserAsync(UserProfileDto user, string password)
     {
-        var result = await useManager.CreateAsync(new ApplicationUser
+        var result = await userManager.CreateAsync(new ApplicationUser
         {
             UserName = user.Email,
             Email = user.Email, 
             FirstName = user.FirstName,
             LastName = user.LastName,
         }, password);
+        if(!result.Succeeded) 
         return new UserResultDto(result.Errors.FirstOrDefault()?.Description);
+
+        return new UserResultDto(null);
     }
 
     public async Task<UserResultDto> SignInAsync(string email, string password)
     {
         var result = await signInManager.PasswordSignInAsync(email, password, false, false);
         return new UserResultDto(result.Succeeded ? null : "Invalid User credentials");
+    }
+
+    public async Task  SignOutAsync()
+    {
+        await signInManager.SignOutAsync();
     }
 }

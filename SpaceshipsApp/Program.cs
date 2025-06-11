@@ -20,6 +20,8 @@ namespace SpaceshipsApp
 
             builder.Services.AddTransient<IIdentityUserService, IdentityUserService>();
             builder.Services.AddTransient<IUserService, UserService>();
+            builder.Services.AddControllersWithViews();
+            builder.Services.AddAuthorization();
 
             builder.Services.AddScoped<ISpaceshipsService, SpaceshipsService>();
             builder.Services.AddScoped<ISpaceshipRepository, SpaceshipRepository>();
@@ -47,6 +49,7 @@ namespace SpaceshipsApp
             var app = builder.Build();
 
             app.UseAuthorization();
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.MapControllers();
 

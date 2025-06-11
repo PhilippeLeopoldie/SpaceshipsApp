@@ -17,7 +17,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <header>
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="/"><img src="/Images/Icons/spaceship-icon.png" alt="Spaceship Icon"/></a>
@@ -25,6 +24,18 @@
             <div class="nav-links">
                 <a asp-controller="Spaceships" asp-action="Index" class="nav-item"><img src="/Images/Icons/home-icon.png" alt="Home Icon"/> Home</a>
                 <a asp-controller="Spaceships" asp-action="Create" class="nav-item"><img src="/Images/Icons/add-icon.png" alt="Add Icon"/> Add Spaceship</a>
+                <a asp-controller="Account" asp-action="Members">Members</a>
+
+                @if(User.Identity!.IsAuthenticated)
+                {
+                    <a asp-controller="Account" asp-action="LogOut">Logout</a>
+                    <p>Logged in User: @User.Identity.Name</p>
+
+                } else
+                {
+                    <a asp-controller="Account" asp-action="LogIn">Login</a>
+                    <a asp-controller="Account" asp-action="Register">Register</a>
+                }
             </div>
         </nav>
 

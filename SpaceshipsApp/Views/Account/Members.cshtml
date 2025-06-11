@@ -2,6 +2,16 @@
 @{
     ViewData["Title"] = "Members";
 }
+@if(User.Identity!.IsAuthenticated)
+{
+    <p>
+        Welcome <strong>@User.Identity!.Name</strong>!
+    </p>
+}
+else
+{
+    <p>Your are not logged....</p>
+}
 
-<h1>Members</h1>
+
 
