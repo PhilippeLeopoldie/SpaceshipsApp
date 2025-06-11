@@ -36,7 +36,7 @@ namespace SpaceshipsApp
 
             var app = builder.Build();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
             app.MapGet("/", () => "WOOO SPACESHIPS!");
 
             app.UseStaticFiles();
