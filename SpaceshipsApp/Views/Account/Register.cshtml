@@ -1,8 +1,17 @@
-﻿@model RegisterVM  
+﻿@model RegisterVM
+
 @{
-    ViewBag.Title= "Registration";
-    
-}  
+    ViewBag.Title = "Register User";
+    ViewBag.MainClass = "main-register";
+    var detailsHeading = "User Details";
+}
+
+<div class="create-container">
+    <img src="/Images/astronaut.jpg" alt="Blueprint of a Spaceship" />
+
+    <div class="text-container">
+        @await Html.PartialAsync("_DetailsHeader", detailsHeading)
+
 
 <form asp-controller="Account" asp-action="Register" class="create-form" id="registerForm">
 
@@ -14,38 +23,40 @@
 
     <div class="input-group">  
         <label asp-for="FirstName"></label>  
-        <input asp-for="FirstName" />  
+        <input asp-for="FirstName" class="form-field"/>  
         <span asp-validation-for="FirstName" class="text-danger"></span>  
     </div>  
     
     <div class="input-group">  
         <label asp-for="LastName"></label>  
-        <input asp-for="LastName" />  
+        <input asp-for="LastName" class="form-field"/>  
         <span asp-validation-for="LastName" class="text-danger"></span>  
     </div>  
     
     <div class="input-group">  
         <label asp-for="Email"></label>  
-        <input asp-for="Email" />  
+        <input asp-for="Email" class="form-field"/>  
         <span asp-validation-for="Email" class="text-danger"></span>  
     </div>  
     
     <div class="input-group">  
         <label asp-for="Password"></label>  
-        <input asp-for="Password" />  
+        <input asp-for="Password" class="form-field"/>  
         <span asp-validation-for="Password" class="text-danger"></span>  
     </div>  
     
     <div class="input-group">  
         <label asp-for="PasswordRepeat"></label>  
-        <input asp-for="PasswordRepeat" />  
+        <input asp-for="PasswordRepeat" class="form-field" />  
         <span asp-validation-for="PasswordRepeat" class="text-danger"></span>  
     </div>  
     
     <br/>  
-    <input type="submit" value="Register"/>  
+    <button type="submit" class="button">Register</button> 
     <div asp-validation-summary="All"></div>  
 </form>
+</div>
+</div>
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {

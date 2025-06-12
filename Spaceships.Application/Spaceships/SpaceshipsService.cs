@@ -8,5 +8,9 @@ public class SpaceshipsService(IUnitOfWork unitOfWork) : ISpaceshipsService
 
     public async Task<SpaceShip?> GetByIdAsync(int id) => await unitOfWork.Spaceships.GetByIdAsync(id);
 
-    public async Task AddAsync(SpaceShip spaceship) => await unitOfWork.Spaceships.AddAsync(spaceship);
+    public async Task AddAsync(SpaceShip spaceship)
+    {
+        await unitOfWork.Spaceships.AddAsync(spaceship);
+        await unitOfWork.PersistAllAsync();
+    }
 }

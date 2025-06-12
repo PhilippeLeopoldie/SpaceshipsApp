@@ -1,7 +1,7 @@
 ﻿/****** BASE ******/
 body {
     background-color: #080a12;
-    background-image: linear-gradient(to bottom, #010102, #0f131e);
+    background-image: linear-gradient(to bottom, #010102, #0b0f1c);
     font-family: "Rajdhani", sans-serif;
     color: white;
 }
@@ -15,15 +15,59 @@ p {
     font-size: 1.1rem;
 }
 
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+.button {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border: 2px solid #5CE4FF;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    min-width: 160px;
+    margin-bottom: 1rem;
+}
+
+.button:hover {
+    border: 2px solid white;
+}
+
+main {
+    min-height: 50vh;
+    width: 80%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.field-validation-error,
+.validation-summary-errors {
+    color: #fb6a6a;
+}
+
+.validation-summary-errors::before {
+  content: "⚠️ Error summary:";
+  font-weight: bold;
+  display: block;
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: white;
+}
+
 
 
 /****** HEADER ******/
 header {
-    height: 50vh;
     background-image: linear-gradient(to bottom, rgba(4, 5, 12, 0.7), transparent), url('/Images/index-header.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,6 +81,8 @@ header > img {
 
 .page-heading {
     font-size: 6rem;
+    line-height: 1.2;
+    font-weight: 500;
 }
 
 
@@ -46,11 +92,12 @@ nav.navbar {
     position: absolute;
     top: 0;
     width: 100%;
-    padding: 0.5% 4%;
-
+    padding: 0.6% 4%;
+    min-height: 80px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 nav .nav-links {
@@ -64,7 +111,7 @@ nav .nav-links a {
     text-transform: uppercase;
     margin-left: 2rem;
     letter-spacing: 2px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 500;
 }
 
@@ -88,6 +135,26 @@ nav .nav-item img {
     margin-right: 0.5rem;
 }
 
+.signed-in-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 2rem;
+    padding-left: 1rem;
+    border-left: 2px solid #1d3144;
+}
+
+.signed-in-heading {
+    color: #5CE4FF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.signed-in-heading, .signed-in-user {
+    margin: 0;
+}
+
 
 
 /****** LANDING PAGE ******/
@@ -101,7 +168,7 @@ nav .nav-item img {
 
 .index-card {
     width: 23%;
-    background-color: #151a2f;
+    background-color: #111321;
     border-radius: 8px;
     box-shadow: 0px 0px 27px 0px rgb(0 0 0 / 70%);
     transition: box-shadow 0.2s, background-color 0.2s;
@@ -109,19 +176,20 @@ nav .nav-item img {
 }
 
 .index-card:hover {
-    background-color: #1c223d;
+    background-color: #151a2f;
 }
 
 .index-card h2 {
     font-family: "Pathway Extreme", sans-serif;
-    font-size: 1.4rem;
+    font-weight: 400;
     padding: 0.8rem;
     text-align: center;
     color: #5CE4FF;
 }
 
 .index-card img {
-    max-width: 100%;
+    width: 100%;
+    height: 300px;
     object-fit: cover;
     object-position: center;
     border-radius: 8px 8px 0 0;
@@ -132,29 +200,37 @@ nav .nav-item img {
 /****** DETAILS PAGE ******/
 .spaceship-details-container {
     display: flex;
-    gap: 2%;
-    background-color: #090b16;
+    background-color: #111321;
     border-radius: 8px;
 }
 
 .spaceship-details-container img {
     border-radius: 8px 0 0 8px;
+    width: 50%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
 .text-container {
-    padding: 2%;
+    width: 50%;
+    padding: 2% 4%;
 }
 
 .text-container p {
     font-family: "Pathway Extreme", sans-serif;
-    font-size: 1.2rem;
+/*    font-size: 1.1rem;*/
     color: #8b8bab;
 }
 
-.text-container .spaceship-details-header {
+.spaceship-details div {
+    margin-bottom: 2rem;
+}
+
+.spaceship-details-header {
     margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 4px solid #06070c;
+    padding-bottom: 1rem;
+    border-bottom: 4px solid #080b10;
     display: flex;
     align-items: center;
 }
@@ -167,36 +243,87 @@ nav .nav-item img {
     margin-right: 1rem;
 }
 
-.text-container h2 {
+.spaceship-details-header h2 {
     font-size: 2.5rem;
     margin-bottom: 0;
 }
 
-.text-container div {
-    margin-bottom: 2rem;
-}
 
 
 
 /****** CREATE PAGE ******/
+.create-container {
+    display: flex;
+    background-color: #111321;
+    border-radius: 8px;
+}
+
+.create-container img {
+    border-radius: 8px 0 0 8px;
+    width: 50%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
 .input-group {
     display: flex;
     flex-direction: column;
+    min-height: 120px;
+}
+
+.input-group.input-group-textarea {
+    margin-bottom: 2rem;
 }
 
 .input-group label {
     font-size: 1.5rem;
 }
 
-.create-form input {
-    background-color: black;
-    border: 2px solid white;
+textarea,
+input:not([type="radio"]):not([type="checkbox"]),
+input:not([type="radio"]):not([type="checkbox"]):-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill,
+input:not([type="radio"]):not([type="checkbox"]):-webkit-autofill:hover,
+textarea:-webkit-autofill:hover,
+select:-webkit-autofill:hover,
+input:not([type="radio"]):not([type="checkbox"]):-webkit-autofill:focus,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill:focus {
+    background-color: #090b12 !important;
+    border: 2px solid #272b45;
     border-radius: 8px;
     padding: 0.5rem;
-
     color: white;
     font-size: 1.1rem;
     font-family: "Pathway Extreme", sans-serif;
+    -webkit-box-shadow: 0 0 0px 1000px #090b12 inset !important;
+    box-shadow: 0 0 0px 1000px #090b12 inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.radio-buttons label {
+    font-family: "Pathway Extreme", sans-serif;
+    font-size: 1.1rem;
+    color: #5CE4FF;
+    margin-right: 1rem;
+}
+
+
+
+/****** LOGIN PAGE ******/
+.login-form {
+    width: 500px;
+    background-color: #111321;
+    padding: 2% 4%;
+    border-radius: 8px;
+    margin: 0 auto;
 }
 
 
@@ -211,4 +338,5 @@ footer {
 footer p {
     color: #8b8bab;
     font-size: 1.1rem;
+    text-align: center;
 }

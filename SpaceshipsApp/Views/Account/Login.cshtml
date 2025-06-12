@@ -1,6 +1,7 @@
 ﻿@model LoginVM
 @{
-    ViewData["Title"] = "Login";
+    ViewBag.Title = "Sign In";
+    ViewBag.MainClass = "main-login";
 }
 
 <form asp-controller="Account" asp-action="Login" class="create-form">
@@ -18,9 +19,8 @@
     </div>
     
 
-    <br />
-    <input type="submit" value="Log In" />
-    <div asp-validation-summary="All"></div>
-
-</form>
+        <button type="submit" class="button">Sign In</button>
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>
 

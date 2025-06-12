@@ -2,52 +2,59 @@
 
 @{
     ViewBag.Title = "Add Spaceship";
-    // ViewBag.ImageSrc = "/Images/index-header.jpg";
     ViewBag.MainClass = "main-create";
+    var detailsHeading = "Spaceship Details";
 }
 
-<form asp-controller="Spaceships" asp-action="Create" class="create-form">
-    <div class="input-group">
-        <label asp-for="SpaceshipName"></label>
-        <input asp-for="SpaceshipName"/>
-        <span asp-validation-for="SpaceshipName" class="text-danger"></span>
+<div class="create-container">
+    <img src="/Images/spaceship-bluebrint.jpg" alt="Blueprint of a Spaceship"/>
+
+    <div class="text-container">
+        @await Html.PartialAsync("_DetailsHeader", detailsHeading)
+
+        <form asp-controller="Spaceships" asp-action="Create" class="create-form">
+            <div class="input-group">
+                <label asp-for="SpaceshipName"></label>
+                <input asp-for="SpaceshipName"/>
+                <span asp-validation-for="SpaceshipName" class="text-danger"></span>
+            </div>
+
+            <div class="input-group">
+                <label asp-for="CompanyName"></label>
+                <input asp-for="CompanyName" class="form-field" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+
+            <div class="input-group">
+                <label asp-for="ImageUrl"></label>
+                <input asp-for="ImageUrl" class="form-field" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+
+            <div class="input-group input-group-textarea">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" rows="5" cols="40" class="form-field"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="input-group input-group-radiobuttons">
+                <label asp-for="TransportType"></label>
+                <div class="radio-buttons">
+                    @foreach (var type in Enum.GetValues(typeof(TransportType)))
+                    {
+                        <label>
+                            <input type="radio" asp-for="TransportType" value="@type" />
+                            @type
+                        </label>
+                    }
+                </div>
+                <span asp-validation-for="TransportType" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="button">Add Spaceship</button>
+        </form>
     </div>
-
-    <div class="input-group">
-        <label asp-for="CompanyName"></label>
-        <input asp-for="CompanyName" class="form-field" />
-        <span asp-validation-for="CompanyName" class="text-danger"></span>
-    </div>
-
-    <div class="input-group">
-        <label asp-for="Description"></label>
-        <input asp-for="Description" class="form-field" />
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
-
-    <div class="input-group">
-        <label asp-for="ImageUrl"></label>
-        <input asp-for="ImageUrl" class="form-field" />
-        <span asp-validation-for="ImageUrl" class="text-danger"></span>
-    </div>
-
-    <div class="input-group">
-        <label asp-for="TransportType"></label>
-        <div>
-            @foreach (var type in Enum.GetValues(typeof(TransportType)))
-            {
-                <label>
-                    <input type="radio" asp-for="TransportType" value="@type" />
-                    @type
-                </label>
-            }
-        </div>
-        <span asp-validation-for="TransportType" class="text-danger"></span>
-    </div>
-
-
-    <button type="submit" class="button">Create</button>
-</form>
+</div>
 
 
 @section scripts
