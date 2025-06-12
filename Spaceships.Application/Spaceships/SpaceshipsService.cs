@@ -1,5 +1,4 @@
 ﻿using Spaceships.Domain.Entities;
-using Spaceships.Domain.Entities.Enums;
 
 namespace Spaceships.Application.Spaceships;
 public class SpaceshipsService(IUnitOfWork unitOfWork) : ISpaceshipsService
@@ -10,6 +9,8 @@ public class SpaceshipsService(IUnitOfWork unitOfWork) : ISpaceshipsService
 
     public async Task AddAsync(SpaceShip spaceship)
     {
+        if (unitOfWork.Spaceships is null)
+            throw new InvalidOperationException("spaceship repo not initialized");
         await unitOfWork.Spaceships.AddAsync(spaceship);
         await unitOfWork.PersistAllAsync();
     }

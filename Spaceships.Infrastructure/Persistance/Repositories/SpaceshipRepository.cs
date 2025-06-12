@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 namespace Spaceships.Infrastructure.Persistance.Repositories;
 public class SpaceshipRepository(ApplicationContext context) : ISpaceshipRepository
 {
-    public async Task AddAsync(SpaceShip spaceShip)
-    {
-        await context.Spaceships.AddAsync(spaceShip);
-    }
-
+    public async Task AddAsync(SpaceShip spaceShip) => await context.Spaceships.AddAsync(spaceShip);
     public async Task<SpaceShip[]> GetAllAsync() =>
         await context.Spaceships
             .OrderByDescending(s => s.Id)

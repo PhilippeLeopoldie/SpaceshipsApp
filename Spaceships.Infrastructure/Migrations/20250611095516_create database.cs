@@ -8,7 +8,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Spaceships.Infrastructure.Migrations
 {
     /// <inheritdoc />
+<<<<<<<< HEAD:Spaceships.Infrastructure/Migrations/20250611095516_create database.cs
     public partial class createdatabase : Migration
+========
+    public partial class initial : Migration
+>>>>>>>> spaceship-ludwig:Spaceships.Infrastructure/Migrations/20250611095559_initial.cs
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
