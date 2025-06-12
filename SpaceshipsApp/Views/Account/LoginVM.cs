@@ -5,6 +5,7 @@ namespace Spaceships.Web.Views.Account;
 public class LoginVM
 {
     [Required]
+    [Display(Name = "Username")]
     public required string UserName { get; set; }
 
     [Required]

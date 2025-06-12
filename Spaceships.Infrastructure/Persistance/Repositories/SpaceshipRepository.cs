@@ -10,11 +10,12 @@ public class SpaceshipRepository(ApplicationContext context) : ISpaceshipReposit
     public async Task AddAsync(SpaceShip spaceShip)
     {
         await context.Spaceships.AddAsync(spaceShip);
-        await context.SaveChangesAsync();
     }
 
-    public async Task<SpaceShip[]> GetAllAsync() => 
-        await context.Spaceships.ToArrayAsync();
+    public async Task<SpaceShip[]> GetAllAsync() =>
+        await context.Spaceships
+            .OrderByDescending(s => s.Id)
+            .ToArrayAsync();
 
     public async Task<SpaceShip?> GetByIdAsync(int id) => 
         await context.Spaceships.FindAsync(id);

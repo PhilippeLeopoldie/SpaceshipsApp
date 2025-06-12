@@ -1,18 +1,26 @@
 ﻿@model LoginVM
 
-<h3>Log In</h3>
-<form asp-controller="Account" asp-action="Login">
-    <label asp-for="UserName"></label>
-    <input asp-for="UserName" />
-    <span asp-validation-for="UserName"></span>
+@{
+    ViewBag.Title = "Sign In";
+    ViewBag.MainClass = "main-login";
+}
 
-    <label asp-for="Password"></label>
-    <input asp-for="Password" />
-    <span asp-validation-for="Password"></span>
+<div class="login-form">
+    <form asp-controller="Account" asp-action="Login">
+        <div class="input-group">
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName" />
+            <span asp-validation-for="UserName"></span>
+        </div>
 
-    <br />
-    <input type="submit" value="Log In" />
-    <div asp-validation-summary="All"></div>
+        <div class="input-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
 
-</form>
+        <button type="submit" class="button">Sign In</button>
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>
 
