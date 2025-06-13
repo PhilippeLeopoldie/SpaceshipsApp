@@ -1,7 +1,24 @@
-﻿@{
-    ViewData["Title"] = "Administrator";
+﻿@model AdminsVM
+
+@{
+    ViewBag.Title = "Administrator";
 }
+
 @if (User.Identity!.IsAuthenticated)
 {
-    <h2>Welcome, <strong>@User.FindFirst("FirstName")?.Value!</strong></h2>
+    <div class="welcome-container">
+        <h2>Welcome @Model.FirstName!</h2>
+        @if (Model.IsAdmin)
+        {
+            <p>✨ Administrator ✨</p>
+        }
+
+        <h3>User Email</h3>
+        <p>@Model.Email</p>
+
+    </div>
+}
+else
+{
+    <p>You are not signed in.</p>
 }

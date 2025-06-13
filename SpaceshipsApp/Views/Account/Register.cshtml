@@ -7,20 +7,13 @@
 }
 
 <div class="create-container">
-    <img src="/Images/astronaut.jpg" alt="Blueprint of a Spaceship" />
+    <img src="/Images/astronaut.jpg" alt="Astronaut in space" />
 
     <div class="text-container">
         @await Html.PartialAsync("_DetailsHeader", detailsHeading)
 
 
 <form asp-controller="Account" asp-action="Register" class="create-form" id="registerForm">
-
-    <div class="input-group">  
-        <label asp-for="IsAdmin"></label>  
-        <span asp-validation-for="IsAdmin" class="text-danger"></span>  
-    </div>  
-    <input type="checkbox" asp-for="IsAdmin" id="isAdminCheckbox" />
-
     <div class="input-group">  
         <label asp-for="FirstName"></label>  
         <input asp-for="FirstName" class="form-field"/>  
@@ -51,7 +44,12 @@
         <span asp-validation-for="PasswordRepeat" class="text-danger"></span>  
     </div>  
     
-    <br/>  
+    <div class="input-group input-group-checkbox">  
+        <input type="checkbox" asp-for="IsAdmin" id="isAdminCheckbox" />
+        <label asp-for="IsAdmin"></label>  
+        <span asp-validation-for="IsAdmin" class="text-danger"></span>  
+    </div>
+
     <button type="submit" class="button">Register</button> 
     <div asp-validation-summary="All"></div>  
 </form>

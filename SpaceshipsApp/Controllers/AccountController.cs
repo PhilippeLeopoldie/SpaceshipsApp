@@ -14,14 +14,33 @@ public class AccountController(IUserService userService) : Controller
     [HttpGet("members")]
     public IActionResult Members()
     {
-        return View();
+        var firstName = User.FindFirst("FirstName")?.Value ?? string.Empty;
+        var email = User.Identity?.Name ?? string.Empty;
+
+        var viewModel = new MembersVM()
+        {
+            FirstName = firstName,
+            Email = email,
+        };
+
+        return View(viewModel);
     }
 
     [Authorize(Roles = "Administrator")]
     [HttpGet("admin")]
     public IActionResult Admins()
     {
-        return View();
+        var firstName = User.FindFirst("FirstName")?.Value ?? string.Empty;
+        var email = User.Identity?.Name ?? string.Empty;
+        var isAdmin = User.IsInRole("Administrator");
+
+        var viewModel = new AdminsVM()
+        {
+            FirstName = firstName,
+            Email = email,
+            IsAdmin = isAdmin
+        };
+        return View(viewModel);
     }
 
     [HttpGet("register")]

@@ -13,6 +13,7 @@ a {
 p {
     font-family: "Pathway Extreme", sans-serif;
     font-size: 1.1rem;
+    color: #8b8bab;
 }
 
 h2 {
@@ -28,7 +29,8 @@ h3 {
     padding: 0.5rem 1rem;
     border: 2px solid #5CE4FF;
     border-radius: 8px;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    font-weight: 500;
     min-width: 160px;
     margin-bottom: 1rem;
 }
@@ -39,8 +41,8 @@ h3 {
 
 main {
     min-height: 50vh;
-    width: 80%;
-    max-width: 1400px;
+    width: 90%;
+    max-width: 1600px;
     margin: 0 auto;
 }
 
@@ -151,6 +153,10 @@ nav .nav-item img {
     font-size: 0.9rem;
 }
 
+.signed-in-user {
+    color: white;
+}
+
 .signed-in-heading, .signed-in-user {
     margin: 0;
 }
@@ -219,7 +225,6 @@ nav .nav-item img {
 
 .text-container p {
     font-family: "Pathway Extreme", sans-serif;
-/*    font-size: 1.1rem;*/
     color: #8b8bab;
 }
 
@@ -250,8 +255,7 @@ nav .nav-item img {
 
 
 
-
-/****** CREATE PAGE ******/
+/****** REGISTER PAGE ******/
 .create-container {
     display: flex;
     background-color: #111321;
@@ -315,15 +319,50 @@ textarea {
     margin-right: 1rem;
 }
 
+.input-group-checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 40px;
+    margin-bottom: 1rem;
+}
+
+#isAdminCheckbox {
+    width: 20px;
+    height: 20px;
+}
+
 
 
 /****** LOGIN PAGE ******/
-.create-form {
+.login-form {
     width: 500px;
     background-color: #111321;
     padding: 2% 4%;
     border-radius: 8px;
     margin: 0 auto;
+}
+
+
+
+/****** MEMBERS/ADMINS PAGE ******/
+.welcome-container {
+    width: 600px;
+    background-color: #111321;
+    padding: 2% 4%;
+    border-radius: 8px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.welcome-container h2 {
+    font-size: 3rem;
+    line-height: 1.1;
+}
+
+.welcome-container h3 {
+    margin-top: 3rem;
 }
 
 
