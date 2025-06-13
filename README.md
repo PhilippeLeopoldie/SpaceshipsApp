@@ -17,10 +17,6 @@ The application is built according to the official course requirements. It demon
         - ConsoleClient
         - Tests
 
-    Domain Model
-        The application is based on a single entity (e.g., Car, Band, Watch).
-        The model contains basic properties like Id, Name, Description, etc.
-
     Entity List Page
         A page that displays all entities from the database.
 
