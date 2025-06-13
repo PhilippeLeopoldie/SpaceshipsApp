@@ -7,7 +7,7 @@
 **The application is built according to the official course requirements. It demonstrates the core concepts of ASP.NET Core MVC by implementing the following features:**
 
 ## 🏠 App Home page
-![HomePage](SpaceShipsApp/wwwroot/Images/HomePage.png)
+![HomePage](SpaceshipsApp/wwwroot/Images/HomePage.png)
 
 
    ## 🧱 Clean Architecture 
