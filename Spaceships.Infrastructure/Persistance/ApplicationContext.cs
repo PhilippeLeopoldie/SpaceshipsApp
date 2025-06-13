@@ -86,12 +86,5 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options)
         });
     }
 
-    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-    {
-        var modifiedEntries = ChangeTracker.Entries()
-                    .Where(e => e.State == EntityState.Modified);
-
-
-        return await base.SaveChangesAsync(cancellationToken);
-    }
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default) => await base.SaveChangesAsync(cancellationToken);
 }
