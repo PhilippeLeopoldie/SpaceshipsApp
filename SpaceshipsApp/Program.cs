@@ -45,7 +45,6 @@ namespace SpaceshipsApp
 
             builder.Services.ConfigureApplicationCookie(configure => configure.LoginPath = "/login");
 
-
             var app = builder.Build();
 
             app.UseAuthorization();
