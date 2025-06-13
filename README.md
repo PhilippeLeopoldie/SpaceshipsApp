@@ -56,7 +56,7 @@ The application is built according to the official course requirements. It demon
 
 🛠️ Technologies Used
 
-    ASP.NET Core 8.0 MVC
+    ASP.NET Core 9.0 MVC
     C#
     Razor Views
     Entity Framework Core
