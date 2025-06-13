@@ -23,9 +23,9 @@ public class AccountControllerTests
 
 
     [Theory]
-    [InlineData(nameof(AccountController.Members), false, null)] //is not admin registered successfully
+    [InlineData(nameof(AccountController.MembersAsync), false, null)] //is not admin registered successfully
     [InlineData(nameof(AccountController.View), false, "error message")]//is not admin registered fails
-    [InlineData(nameof(AccountController.Admins), true, null)]//is admin registered successfully
+    [InlineData(nameof(AccountController.AdminsAsync), true, null)]//is admin registered successfully
     [InlineData(nameof(AccountController.View), true, "error message")]//is admin registered fails
     public async Task RegisterAsync_ShouldRedirectOrReturnView_BasedOnRegistrationResult(
         string expectedAction,
@@ -56,7 +56,7 @@ public class AccountControllerTests
         if (errorMessage == null)
         {
             var redirect = Assert.IsType<RedirectToActionResult>(result);
-            Assert.Equal(expectedAction, redirect.ActionName);
+            Assert.Equal(expectedAction.Replace("Async", ""), redirect.ActionName);
         }
         else
         {
@@ -68,9 +68,9 @@ public class AccountControllerTests
     }
 
     [Theory]
-    [InlineData(nameof(AccountController.Members), false, null, "john@hotmail.com")] //is not admin Log In successfully
+    [InlineData(nameof(AccountController.MembersAsync), false, null, "john@hotmail.com")] //is not admin Log In successfully
     [InlineData(nameof(AccountController.View), false, "error message", "john@hotmail.com")]//is not admin Log In fails
-    [InlineData(nameof(AccountController.Admins), true, null, "john@hotmail.com")]//is admin Log In successfully
+    [InlineData(nameof(AccountController.AdminsAsync), true, null, "john@hotmail.com")]//is admin Log In successfully
     [InlineData(nameof(AccountController.View), true, "error message", "john@hotmail.com")]//is admin Log In fails
     public async Task LoginAsync_ShouldRedirectOrReturnView_BasedOnLogInResult(
         string expectedAction,
@@ -99,7 +99,7 @@ public class AccountControllerTests
         if (errorMessage == null)
         {
             var redirect = Assert.IsType<RedirectToActionResult>(result);
-            Assert.Equal(expectedAction, redirect.ActionName);
+            Assert.Equal(expectedAction.Replace("Async", ""), redirect.ActionName);
         }
         else
         {

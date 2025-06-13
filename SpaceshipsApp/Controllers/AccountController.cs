@@ -12,15 +12,16 @@ public class AccountController(IUserService userService) : Controller
     
     [Authorize]
     [HttpGet("members")]
-    public IActionResult Members()
+    public async Task<IActionResult> MembersAsync()
     {
-        var firstName = User.FindFirst("FirstName")?.Value ?? string.Empty;
         var email = User.Identity?.Name ?? string.Empty;
+        var user = await userService.GetUserByEmailAsync(email);
 
         var viewModel = new MembersVM()
         {
-            FirstName = firstName,
-            Email = email,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Email = user.Email,
         };
 
         return View(viewModel);
@@ -28,16 +29,17 @@ public class AccountController(IUserService userService) : Controller
 
     [Authorize(Roles = "Administrator")]
     [HttpGet("admin")]
-    public IActionResult Admins()
+    public async Task<IActionResult> AdminsAsync()
     {
-        var firstName = User.FindFirst("FirstName")?.Value ?? string.Empty;
         var email = User.Identity?.Name ?? string.Empty;
+        var user = await userService.GetUserByEmailAsync(email);
         var isAdmin = User.IsInRole("Administrator");
 
         var viewModel = new AdminsVM()
         {
-            FirstName = firstName,
-            Email = email,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Email = user.Email,
             IsAdmin = isAdmin
         };
         return View(viewModel);
@@ -61,8 +63,8 @@ public class AccountController(IUserService userService) : Controller
             return View();
         }
         await userService.SignInAsync(viewModel.Email, viewModel.Password);
-        if (userDto.IsAdmin) return RedirectToAction(nameof(Admins));
-        return RedirectToAction(nameof(Members));
+        if (userDto.IsAdmin) return RedirectToAction(nameof(AdminsAsync).Replace("Async", ""));
+        return RedirectToAction(nameof(MembersAsync).Replace("Async",""));
     }
 
  
@@ -87,8 +89,8 @@ public class AccountController(IUserService userService) : Controller
             ModelState.AddModelError(string.Empty, "Unexpected error: User data could not be loaded.");
             return View();
         }
-        if(user.IsAdmin) return RedirectToAction(nameof(Admins));
-        return RedirectToAction(nameof(Members));
+        if(user.IsAdmin) return RedirectToAction(nameof(AdminsAsync).Replace("Async", ""));
+        return RedirectToAction(nameof(MembersAsync).Replace("Async", ""));
     }
 
     [HttpGet("logOut")]

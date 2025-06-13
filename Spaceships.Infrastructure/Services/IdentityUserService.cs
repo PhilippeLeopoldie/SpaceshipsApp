@@ -34,7 +34,7 @@ public class IdentityUserService(
 
         // Add FirstName claim to database 
         await userManager.AddClaimAsync(applicationUser, new Claim("FirstName", applicationUser.FirstName));
-        //await userManager.AddClaimAsync(applicationUser, new Claim("IsAdmin", applicationUser.IsAdmin.ToString()));
+        await userManager.AddClaimAsync(applicationUser, new Claim("LastName", applicationUser.LastName));
 
         if (applicationUser.IsAdmin)
         {
