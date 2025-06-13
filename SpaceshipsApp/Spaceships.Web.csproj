@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Spaceships\" />
-    <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
   <ItemGroup>
