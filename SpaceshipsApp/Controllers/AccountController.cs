@@ -94,7 +94,7 @@ public class AccountController(IUserService userService) : Controller
     }
 
     [HttpGet("logOut")]
-    public async Task<IActionResult> LogOut()
+    public async Task<IActionResult> LogOutAsync()
     {
         await userService.SignOutAsync();
         return RedirectToAction(nameof(LoginAsync).Replace("Async", ""));

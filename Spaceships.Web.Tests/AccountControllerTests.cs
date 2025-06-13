@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Spaceships.Application.Dtos;
 using Spaceships.Application.Users;
 using Spaceships.Web.Controllers;
 using Spaceships.Web.Views.Account;
+using System.Security.Claims;
 
 
 namespace Spaceships.Web.Tests;
@@ -60,7 +62,7 @@ public class AccountControllerTests
         }
         else
         {
-            var redirect = Assert.IsType<ViewResult>(result);
+            var viewResult = Assert.IsType<ViewResult>(result);
             Assert.False(controller.ModelState.IsValid);
             var error = controller.ModelState[string.Empty].Errors.FirstOrDefault()?.ErrorMessage;
             Assert.Equal(errorMessage, error);
@@ -103,10 +105,101 @@ public class AccountControllerTests
         }
         else
         {
-            var redirect = Assert.IsType<ViewResult>(result);
+            var viewResult = Assert.IsType<ViewResult>(result);
             Assert.False(controller.ModelState.IsValid);
             var error = controller.ModelState[string.Empty].Errors.FirstOrDefault()?.ErrorMessage;
             Assert.Equal(errorMessage, error);
         }
+    }
+
+    [Fact]
+    public async Task MemberAsync_ShouldReturnMembersView()
+    {
+        // Arrange
+        var email = "myEmail@hotmail.com";
+        var user = new UserProfileDto(email, "myFirstName", "myLastName", false);
+        mockUserService.Setup(service => service.GetUserByEmailAsync(email))
+            .ReturnsAsync(user);
+
+        // Simulate an authenticated user
+        var claims = new List<Claim>
+        {
+        new Claim(ClaimTypes.Name, email),
+        //new Claim(ClaimTypes.Role, "Administrator")
+        };
+        var identity = new ClaimsIdentity(claims, "TestAuthType");
+        var principal = new ClaimsPrincipal(identity);
+
+        controller.ControllerContext = new ControllerContext
+        {
+            HttpContext = new DefaultHttpContext
+            {
+                User = principal
+            }
+        };
+
+        // Act
+        var result = await controller.MembersAsync();
+        // Assert
+        Assert.True(controller.ModelState.IsValid);
+        var viewResult = Assert.IsType<ViewResult>(result);
+        var model = Assert.IsType<MembersVM>(viewResult.Model);
+
+        Assert.Equal(user.FirstName, model.FirstName);
+        Assert.Equal(user.LastName, model.LastName);
+        Assert.Equal(user.Email, model.Email);
+    }
+
+
+    [Fact]
+    public async Task MemberAsync_ShouldReturnAdminsView()
+    {
+        // Arrange
+        var email = "myEmail@hotmail.com";
+        var user = new UserProfileDto(email, "myFirstName", "myLastName", false);
+        mockUserService.Setup(service => service.GetUserByEmailAsync(email))
+            .ReturnsAsync(user);
+
+        // Simulate an authenticated user
+        var claims = new List<Claim>
+        {
+        new Claim(ClaimTypes.Name, email),
+        new Claim(ClaimTypes.Role, "Administrator")
+        };
+        var identity = new ClaimsIdentity(claims, "TestAuthType");
+        var principal = new ClaimsPrincipal(identity);
+
+        controller.ControllerContext = new ControllerContext
+        {
+            HttpContext = new DefaultHttpContext
+            {
+                User = principal
+            }
+        };
+
+        // Act
+        var result = await controller.AdminsAsync();
+        // Assert
+        Assert.True(controller.ModelState.IsValid);
+        var viewResult = Assert.IsType<ViewResult>(result);
+        var model = Assert.IsType<AdminsVM>(viewResult.Model);
+        Assert.True(model.IsAdmin);
+        Assert.Equal(user.FirstName, model.FirstName);
+        Assert.Equal(user.LastName, model.LastName);
+        Assert.Equal(user.Email, model.Email);
+    }
+
+    [Fact]
+    public async Task LogOutAsync_ShouldRedirectToActionLoginAsync()
+    {
+        // Arrange
+        mockUserService.Setup(service => service.SignOutAsync())
+            .Returns(Task.CompletedTask);
+
+        // Act 
+        var result = await controller.LogOutAsync();
+        // Assert
+        var redirect = Assert.IsType<RedirectToActionResult>(result);
+        Assert.Equal("Login", redirect.ActionName);
     }
 }
