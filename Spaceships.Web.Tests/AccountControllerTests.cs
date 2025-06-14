@@ -113,7 +113,7 @@ public class AccountControllerTests
     }
 
     [Fact]
-    public async Task MemberAsync_ShouldReturnMembersView()
+    public async Task MembersAsync_ShouldReturnMembersView()
     {
         // Arrange
         var email = "myEmail@hotmail.com";
@@ -125,7 +125,6 @@ public class AccountControllerTests
         var claims = new List<Claim>
         {
         new Claim(ClaimTypes.Name, email),
-        //new Claim(ClaimTypes.Role, "Administrator")
         };
         var identity = new ClaimsIdentity(claims, "TestAuthType");
         var principal = new ClaimsPrincipal(identity);
@@ -152,7 +151,7 @@ public class AccountControllerTests
 
 
     [Fact]
-    public async Task MemberAsync_ShouldReturnAdminsView()
+    public async Task AdminsAsync_ShouldReturnAdminsView()
     {
         // Arrange
         var email = "myEmail@hotmail.com";
