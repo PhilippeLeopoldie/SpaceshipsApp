@@ -18,7 +18,7 @@
 
 ---
 
-## 📌 Assignment Goals
+## Assignment Goals
 This is a collaborative project aimed at building a full-featured **ASP.NET Core MVC** web application using **Clean Architecture** principles. The goal is to demonstrate proficiency in modern ASP.NET Core development by applying:
 
 - ✅ MVVMC design pattern
@@ -30,12 +30,12 @@ This is a collaborative project aimed at building a full-featured **ASP.NET Core
 
 ---
 
-# 🏠 App Home Page
+# App Home Page
 ![HomePage](SpaceshipsApp/wwwroot/Images/HomePage.png)
 
 ---
 
-# 📐 Clean Architecture Overview
+# Clean Architecture Overview
 
 This application follows **Clean Architecture**, which promotes separation of concerns, testability, and maintainability. The project is structured into the following layers:
 
@@ -48,7 +48,7 @@ This application follows **Clean Architecture**, which promotes separation of co
 
 ---
 
-# 📋 Features:
+# Features:
 
 ### Entity List Page
 - Displays all entities retrieved from the database.
@@ -86,7 +86,7 @@ This application follows **Clean Architecture**, which promotes separation of co
 
 ---
 
-# 🛠️ Technologies Used  
+# Technologies Used  
 - 🔷 **ASP.NET Core 9.0 MVC**
 - 💬 **C#**
 - 📄 **Razor Views**
