@@ -1,20 +1,20 @@
 # ASP.NET Core MVC - Group Assignment
 
-## 📑 Table of Contents
-- [📌 Assignment Goals](#📌-assignment-goals)
-- [🏠 App Home Page](#🏠-app-home-page)
-- [📐 Clean Architecture Overview](#📐-clean-architecture-overview)
-- [📋 Features](#📋-features)
-  - [📄 Entity List Page](#📄-entity-list-page)
-  - [📝 Create Form](#📝-create-form)
-  - [✅ Form Validation](#✅-form-validation)
-  - [🔐 Authentication and Authorization](#🔐-authentication-and-authorization)
-  - [🖼️ Razor Views & MVC Features](#🖼️-razor-views--mvc-features)
-  - [💾 Data Access](#💾-data-access)
-  - [🧪 Unit Testing](#🧪-unit-testing)
-  - [🖥️ Console Application](#🖥️-console-application)
-- [🛠️ Technologies Used](#🛠️-technologies-used)
-- [🚀 Getting Started](#🚀-getting-started)
+## 🔗Table of Contents
+- [📌 Assignment Goals](#assignment-goals)
+- [🏠 App Home Page](#app-home-page)
+- [📐 Clean Architecture Overview](#clean-architecture-overview)
+- [📋 Features](#features)
+  - [📄 Entity List Page](#entity-list-page)
+  - [📝 Create Form](#create-form)
+  - [✅ Form Validation](#form-validation)
+  - [🔐 Authentication and Authorization](#authentication-and-authorization)
+  - [🖼️ Razor Views & MVC Features](#razor-views--mvc-features)
+  - [💾 Data Access](#data-access)
+  - [🧪 Unit Testing](#unit-testing)
+  - [🖥️ Console Application](#console-application)
+- [🛠️ Technologies Used](#technologies-used)
+- [🚀 Getting Started](#getting-started)
 
 ---
 
@@ -50,38 +50,38 @@ This application follows **Clean Architecture**, which promotes separation of co
 
 # 📋 Features:
 
-### 📄 Entity List Page
+### Entity List Page
 - Displays all entities retrieved from the database.
 
-### 📝 Create Form
+### Create Form
 - A form that allows users to create and add new entities.
 
-### ✅ Form Validation
+### Form Validation
 - 🧍 **Client-side**: HTML and JavaScript validation
 - 🛡️ **Server-side**: Data Annotations and `ModelState.IsValid`
 
-### 🔐 Authentication and Authorization
+### Authentication and Authorization
 - 👤 User registration and login using **ASP.NET Core Identity**
 - 👥 Protected members-only page: `/members`
 - 🛡️ Admin-only page: `/admin` (requires "Administrators" role)
 
-### 🖼️ Razor Views & MVC Features
+### Razor Views & MVC Features
 - Shared layout using `_Layout.cshtml`
 - `_ViewStart.cshtml` and `_ViewImports.cshtml` configured
 - One unique **ViewModel per View**
 - At least two **Controller** classes: one for entities, one for user accounts
 
-### 💾 Data Access
+### Data Access
 - Uses **Entity Framework Core** for Object-Relational Mapping (ORM)
 - SQL Server LocalDB is the database provider
 - Database context (`DbContext`) and code-first **migrations** are configured in the **Infrastructure** layer
 - Application layer communicates with data access through well-defined interfaces
 
-### 🧪 Unit Testing
+### Unit Testing
 - **Application services** tested in `Application.Tests`
 - **Controllers** tested in `WebUI.Tests`
 
-### 🖥️ Console Application
+### Console Application
 - `ConsoleClient` project reads and displays entities using the **Application** layer only
 
 ---
@@ -97,7 +97,7 @@ This application follows **Clean Architecture**, which promotes separation of co
 
 ---
 
-# 🚀 Getting Started
+# Getting Started
 1. Clone the repository
 2. Apply migrations and update the database
 3. Run the WebUI project
