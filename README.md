@@ -1,10 +1,6 @@
-## ⌨️ ASP.NET Core MVC - Group Assignment
-
-**This is a collaborative project aimed at building a complete ASP.NET Core MVC web application using Clean Architecture principles. The goal is to demonstrate a comprehensive understanding of ASP.NET Core development, incorporating the MVVMC design pattern, authentication, role-based authorization, view models, structured data access with an SQL database, and unit testing.**
-
+# ASP.NET Core MVC - Group Assignment
 ## 📌 Assignment Goals
-
-**The application is built according to the official course requirements. It demonstrates the core concepts of ASP.NET Core MVC by implementing the following features:**
+**This is a collaborative project aimed at building a complete ASP.NET Core MVC web application using Clean Architecture principles. The goal is to demonstrate a comprehensive understanding of ASP.NET Core development, incorporating the MVVMC design pattern, authentication, role-based authorization, view models, structured data access with an SQL database, and unit testing.**
 
 ## 🏠 App Home page
 ![HomePage](SpaceshipsApp/wwwroot/Images/HomePage.png)
