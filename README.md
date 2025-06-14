@@ -57,13 +57,13 @@ This application follows **Clean Architecture**, which promotes separation of co
 - A form that allows users to create and add new entities.
 
 ### Form Validation
-- 🧍 **Client-side**: HTML and JavaScript validation
-- 🛡️ **Server-side**: Data Annotations and `ModelState.IsValid`
+- **Client-side**: HTML and JavaScript validation
+- **Server-side**: Data Annotations and `ModelState.IsValid`
 
 ### Authentication and Authorization
-- 👤 User registration and login using **ASP.NET Core Identity**
-- 👥 Protected members-only page: `/members`
-- 🛡️ Admin-only page: `/admin` (requires "Administrators" role)
+- User registration and login using **ASP.NET Core Identity**
+- Protected members-only page: `/members`
+- Admin-only page: `/admin` (requires "Administrators" role)
 
 ### Razor Views & MVC Features
 - Shared layout using `_Layout.cshtml`
