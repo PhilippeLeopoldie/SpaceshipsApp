@@ -19,7 +19,7 @@
 ---
 
 ## Assignment Goals
-This is a collaborative project aimed at building a full-featured **ASP.NET Core MVC** web application using **Clean Architecture** principles. The goal is to demonstrate proficiency in modern ASP.NET Core development by applying:
+This is a 5 days collaborative project aimed at building a featured **ASP.NET Core MVC** web application using **Clean Architecture** principles. The goal is to demonstrate proficiency in modern ASP.NET Core development by applying:
 
 - ✅ MVVMC design pattern
 - ✅ Clean separation of concerns
